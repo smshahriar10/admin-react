@@ -1,4 +1,4 @@
-export default function Menu({ menuItems, activeItem }) {
+export default function Menu({ menuItems, activeItem, isSidebarOpen }) {
   return (
     <nav className="mt-8 flex-1">
       <ul className="space-y-1">
@@ -12,7 +12,8 @@ export default function Menu({ menuItems, activeItem }) {
             }`}
           >
             <span className="text-xl">{item.icon}</span>
-            <span className="ml-3">{item.label}</span>
+            {/* Show label only if sidebar is open */}
+            {isSidebarOpen && <span className="ml-3">{item.label}</span>}
           </li>
         ))}
       </ul>
